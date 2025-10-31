@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Numbers from big to smål</title>
+    <!-- Write a program that asks the user for numbers until the user gives zero. 
+    The given numbers are printed in the console from the largest to the smallest. (2p) -->
+</head>
+<body>
+    <script>
+        let numbers = [];
+        while (true) {
+            let input = prompt("Enter a number (0 stops): ");
+            let num = parseFloat(input);
+            if (num === 0) {
+                break;
+            }
+            numbers.push(num);
+        }
+        numbers.sort();
+        numbers.reverse();
+        console.log("Numbers from largest to smallest:");
+        console.log(numbers);
+        for (let i = 0; i < numbers.length; i++) {
+            console.log(numbers[i]);
+        };
+    </script>
+</body>
+</html>

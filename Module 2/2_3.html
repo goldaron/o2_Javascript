@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Good Doggos, Best Doggos</title>
+    <!-- Write a program that asks for the names of six dogs. 
+    The program prints dog names to unordered list <ul> in reverse alphabetical order. (2p) -->
+</head>
+<body>
+    <script>    
+        let dogNames = [];
+        for (let i = 0; i < 6; i++) {
+            let name = prompt("Enter the name of dog " + (i + 1) + ":");
+            dogNames.push(name);
+        }
+        dogNames.sort();
+        dogNames.reverse();
+        document.write("<ul>");
+        for (let i = 0; i < dogNames.length; i++) {
+            document.write("<li>" + dogNames[i] + "</li>");
+        }
+        document.write("</ul>");
+    </script>
+</body>
+</html>

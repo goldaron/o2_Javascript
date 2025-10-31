@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Write a program that prompts for three integers. The program prints the sum, product and average of the numbers to the HTML document. -->
+    <title>Calculations</title>
+</head>
+<body>
+    <script>
+        let num = prompt("Enter a first number:");
+        let num2 = prompt("Enter a second number:");
+        let num3 = prompt("Enter a third number:");
+        let sum = parseInt(num) + parseInt(num2) + parseInt(num3);
+        document.write(`<h1>The sum is: ${sum}</h1>`);
+
+        let product = parseInt(num) * parseInt(num2) * parseInt(num3);
+        document.write(`<h1>The product is: ${product}</h1>`);
+
+        let average = sum / 3;
+        document.write(`<h1>The average is: ${average}</h1>`);
+        
+        </script>
+    </body>
+</html>

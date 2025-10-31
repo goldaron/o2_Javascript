@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leap Years from a to b</title>
+    <!-- Write a program that prompts the user for the start and end year. 
+     The program prints all leap years from the interval given by the user. 
+     Printing is done in an unordered list to the HTML document.-->
+</head>
+<body>
+    <script>
+        let startYear = prompt("Enter the start year:");
+        let endYear = prompt("Enter the end year:");
+        startYear = parseInt(startYear);
+        endYear = parseInt(endYear);
+
+        document.write("<ul>");
+        for (let year = startYear; year <= endYear; year++) {
+            if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+                document.write(`<li>${year}</li>`);
+            }
+        }
+        document.write("</ul>");
+    </script>
+</body>
+</html>
