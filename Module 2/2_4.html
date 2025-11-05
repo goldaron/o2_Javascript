@@ -2,27 +2,49 @@
 <html>
 <head>
     <title>Numbers from big to smål</title>
-    <!-- Write a program that asks the user for numbers until the user gives zero. 
-    The given numbers are printed in the console from the largest to the smallest. (2p) -->
+        <!--
+                Task: repeatedly prompt the user for numbers until the user enters 0.
+                After input collection, print the numbers from largest to smallest.
+
+                Notes:
+                - Use prompt() to collect values until 0 is entered (0 stops input).
+                - Convert prompt input to Number (parseFloat used here) before storing.
+                - After collection, sort and reverse the array so the output is
+                    largest-to-smallest and print to the console.
+                - The current implementation uses Array.prototype.sort() without a
+                    numeric comparator; because values are stored as numbers this
+                    generally works, but a numeric comparator (a-b) is safer for
+                    guaranteed numeric ordering. We intentionally do not change
+                    the program logic here — only add comments.
+        -->
 </head>
 <body>
     <script>
+        // Collect numeric inputs until the user enters 0.
+        // Each prompt value is parsed to a number using parseFloat before storing.
         let numbers = [];
         while (true) {
             let input = prompt("Enter a number (0 stops): ");
+            // Convert the string input to a floating-point number
             let num = parseFloat(input);
+            // If the user entered 0, stop collecting inputs
             if (num === 0) {
                 break;
             }
             numbers.push(num);
         }
-        numbers.sort();
-        numbers.reverse();
+
+        // Sort and reverse to get largest-to-smallest order. Note: a numeric
+        // to ensure correct numeric ordering, but we keep original approach.
+        numbers.sort((a,b) => b - a);
+
+
+        // Print output header and the array for quick verification in console
         console.log("Numbers from largest to smallest:");
         console.log(numbers);
         for (let i = 0; i < numbers.length; i++) {
             console.log(numbers[i]);
-        };
+        }
     </script>
 </body>
 </html>

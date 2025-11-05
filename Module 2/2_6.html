@@ -2,20 +2,33 @@
 <html>
 <head>
     <title>Roll 6</title>
-    <!-- Write a function that returns a random dice roll between 1 and 6. The function should not have any parameters. 
-    Write a main program that rolls the dice until the result is 6. 
-    The main program should print out the result of each roll in an unordered list (<ul>). (2p) -->
+        <!--
+                Task: implement a dice roll function and repeatedly roll until a 6
+                appears, printing each roll to an unordered list (<ul>) in the page.
+
+                Notes:
+                - Function rollDice(): no parameters, returns an integer 1..6.
+                - Main program: call rollDice repeatedly until it returns 6.
+                - Render each roll as a <li> inside a <ul> using document.write.
+                - The implementation uses Math.random() and keeps the original loop
+        -->
 </head>
 <body>
     <script>
+        // rollDice: returns a random integer in the inclusive range 1..6
+        // Implementation: Math.random() -> [0,1), scale to [0,6), floor -> 0..5,
+        // add 1 -> 1..6
         function rollDice() {
             return Math.floor(Math.random() * 6) + 1;
         }
 
+        // Render each roll inside an unordered list until a 6 appears.
+        // Using a do-while loop ensures we always roll at least once.
         document.write("<ul>");
         let roll;
         do {
             roll = rollDice();
+            // Print the roll as a list item
             document.write("<li>" + roll + "</li>");
         } while (roll !== 6);
         document.write("</ul>");

@@ -2,19 +2,35 @@
 <html>
 <head>
     <title>Participants</title>
-    <!-- Write a program that asks the user for the number of participants. 
-    After this, the program asks for the names of all participants. 
-    Finally, the program prints the names of the participants on the web page in an ordered list 
-    (<ol>) in alphabetical order. (2p) -->
+        <!--
+                Task: ask the user for a number of participants, then prompt for each
+                participant's name and display the names on the page as an ordered list
+                (<ol>) in alphabetical order.
+
+                Notes:
+                - Prompt once for the number of participants (expected integer input).
+                - Prompt that many times to collect participant names into an array.
+                - Use Array.prototype.sort() to alphabetize names before rendering.
+                - Render results as an ordered list using document.write() for this
+                    simple exercise (no additional DOM API required).
+        -->
 </head>
 <body>
     <script>
+        // Prompt for how many participants we will collect.
+        // Note: prompt returns a string; using it directly for loop count keeps
+        // original behavior but may coerce to number implicitly. This preserves
+        // the original functionality while documenting expected input.
         let numParticipants = prompt("Enter the number of participants:");
+
+        // Collect names into an array
         let participants = [];
         for (let i = 0; i < numParticipants; i++) {
             let name = prompt("Enter the name of participant " + (i + 1) + ":");
             participants.push(name);
         }
+
+        // Sort alphabetically (default string sort) and render as ordered list
         participants.sort();
         document.write("<ol>");
         for (let i = 0; i < participants.length; i++) {

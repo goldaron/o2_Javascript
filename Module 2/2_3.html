@@ -2,18 +2,33 @@
 <html>
 <head>
     <title>Good Doggos, Best Doggos</title>
-    <!-- Write a program that asks for the names of six dogs. 
-    The program prints dog names to unordered list <ul> in reverse alphabetical order. (2p) -->
+        <!--
+                Task: ask the user for the names of six dogs and display them in an
+                unordered list (<ul>) in reverse alphabetical order.
+
+                Notes:
+                - Prompt six times for dog names and collect into an array.
+                - Sort the array alphabetically and then reverse it so that the order
+                    is reverse-alphabetical when printed.
+                - Render results using document.write() as a simple learning example.
+        -->
 </head>
 <body>
     <script>    
+        // Collect six dog names from the user. Keep original behavior — prompts
+        // return strings and we store them directly.
         let dogNames = [];
         for (let i = 0; i < 6; i++) {
             let name = prompt("Enter the name of dog " + (i + 1) + ":");
             dogNames.push(name);
         }
+
+        // Sort alphabetically, then reverse the order to produce
+        // reverse-alphabetical output as required by the exercise.
         dogNames.sort();
         dogNames.reverse();
+
+        // Render the results as an unordered list for easy reading on the page
         document.write("<ul>");
         for (let i = 0; i < dogNames.length; i++) {
             document.write("<li>" + dogNames[i] + "</li>");

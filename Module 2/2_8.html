@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Joining Array</title>
+    <!--
+        Task: Write a function called concat() that receives an array of strings
+        and returns a single string formed by concatenating all elements.
+
+        Requirements / contract:
+        - Function name: concat
+        - Parameter: an array of strings (e.g. ["a", "b", "c"]).
+        - Return: a single string containing all array items concatenated in order.
+        - Do NOT use Array.prototype.join() — implement concatenation manually.
+        - Hardcoding the array for demonstration is fine (no prompt needed).
+        - Print the result into the HTML document for verification.
+
+        Example: input ["Johnny","DeeDee","Joey","Marky"] ->
+                -> output "JohnnyDeeDeeJoeyMarky" 
+        -->
+</head>
+<body>
+    <script>
+        // concat: concatenates an array of strings into a single string
+        // Input: strings - array of strings
+        // Output: a single concatenated string
+        function concat(strings) {
+            // initialize an empty string to accumulate results
+            let result = "";
+
+            // iterate through each element and append to result
+            for (let i = 0; i < strings.length; i++) {
+                // ensure the element is a string before concatenating
+                // (defensive: convert non-strings to string)
+                result += String(strings[i]);
+            }
+
+            // return the concatenated result
+            return result;
+        }
+
+        // Hardcoded names array as per the task
+        let names = ["Johnny", "DeeDee", "Joey", "Marky"];
+
+        // Call the function and capture the returned value
+        let concatenatedNames = concat(names);
+
+        // Print the result into the HTML document for quick verification
+        // Using document.write here is acceptable for this learning exercise
+        document.write("<p>" + concatenatedNames + "</p>");
+    </script>
+</body>
+</html>
