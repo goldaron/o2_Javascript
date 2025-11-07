@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mini Voting App (Web Version)</title>
+    <style>
+        /* Minimal styles to make the demo readable */
+        body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; padding: 20px; }
+        .hidden { display: none; }
+        .container { max-width: 720px; margin: 0 auto; }
+        fieldset { margin-bottom: 1rem; }
+        ul { padding-left: 1.2rem; }
+        .candidate { display:flex; justify-content:space-between; padding:4px 0; }
+        button { margin-left: 8px; }
+        /* Feedback styling: a small green pill that fades out */
+        #feedback {
+            display: inline-block;
+            margin-left: 12px;
+            padding: 6px 10px;
+            background: #e6ffed; /* very light green */
+            color: #0b8043; /* darker green text */
+            border-radius: 16px;
+            font-size: 0.95rem;
+            transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #feedback.hidden { opacity: 0; transform: translateY(-6px); }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <h1>Mini Voting App</h1>
+
+        <!--
+            This page implements the same functionality as the 2_10.html, but in a small interactive web UI. 
+            The flow is:
+              1) Enter number of candidates (or add candidates directly)
+              2) Enter candidate names
+              3) Enter number of voters
+              4) For each voter, choose a candidate and submit the vote
+              5) When voting is finished show results and the winner
+        -->
+
+        <!-- Step 1: UI for entering the number of candidates -->
+        <section id="setup">
+            <fieldset>
+                <legend>Step 1 — Candidates</legend>
+                <p>
+                    You can enter how many candidates there will be and click
+                    "Create fields", or you can add candidates manually using
+                    the "Add candidate" button.
+                </p>
+
+                <label>
+                    Number of candidates:
+                    <input id="numCandidates" type="number" min="1" value="2" />
+                </label>
+                <button id="createFields">Create fields</button>
+                <button id="addCandidate">Add candidate</button>
+
+                <!-- Container where candidate name inputs will be created -->
+                <div id="candidatesInputs"></div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Step 2 — Voters</legend>
+                <label>
+                    Number of voters:
+                    <input id="numVoters" type="number" min="0" value="3" />
+                </label>
+                <p>When ready, click <strong>Start Voting</strong>.</p>
+                <button id="startVoting">Start Voting</button>
+            </fieldset>
+        </section>
+
+        <!-- Step 3: Voting UI (updated dynamically) -->
+        <section id="voting" class="hidden">
+            <fieldset>
+                <legend>Voting</legend>
+                <p id="voterInfo">Voter 1 of N</p>
+
+                <label>
+                    Choose candidate:
+                    <select id="voteSelect"></select>
+                </label>
+                <button id="submitVote">Submit Vote</button>
+
+                <!-- Visual feedback area shown briefly after a vote is recorded -->
+                <div id="feedback" class="hidden" aria-live="polite"></div>
+
+                <p><button id="finishEarly">Finish early</button></p>
+            </fieldset>
+        </section>
+
+        <!-- Results section -->
+        <section id="results" class="hidden">
+            <fieldset>
+                <legend>Results</legend>
+                <h2 id="winnerHeading">Winner: —</h2>
+                <h3>All results</h3>
+                <ul id="resultsList"></ul>
+                <p><button id="reset">Reset</button></p>
+            </fieldset>
+        </section>
+    </main>
+
+    <script src="2_10_2 Web Version.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+/*    <!--
+                Task: prompt the user for five numbers and print them in the reverse order
+                they were entered (this is not sorting, but reversing the entry order).
+
+                Notes:
+                - Prompt the user five times and store each entry in an array.
+                - After collection, iterate the array from the last index down to 0 and
+                    print each element to the console.
+                - Do not use Array.prototype.reverse() — use a for-loop to iterate backwards.
+                - For this exercise prompt() is acceptable; the values will be logged
+                    to the console for verification.
+        --> */
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Collect five values from the user and store into an array.
+    // We're intentionally not converting to Number here to avoid changing
+    // behavior; the original stored prompt() results directly.
+    let numbers = [];
+    for (let i = 0; i < 5; i++) {
+        // prompt returns a string; keep original behavior
+        let num = prompt("Enter a number:");
+        numbers.push(num);
+    }
+
+    // Print a header to the console so output is easy to read during testing
+    console.log("Numbers in reverse order:");
+
+    // Iterate array in reverse (from last entered to first) and log each
+    // element. This reverses input order but does not sort values.
+    for (let i = numbers.length - 1; i >= 0; i--) {
+        console.log(numbers[i]);
+    }
+});
