@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TV Series Search</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="t1.js" defer></script>
+</head>
+<body>
+    <div class="search">
+    <h1>Search for a TV Series</h1>
+    <form action="https://api.tvmaze.com/search/shows" method="get">
+      <input id="query" name="q" type="text" placeholder="Enter TV series name">
+      <input type="submit" value="Search">
+    </form>
+</div>
+<div class="results">
+    <p id="result"></p>   
+</div>
+
+</body>
+</html>
